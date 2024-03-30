@@ -13,7 +13,5 @@ export default function Presentation(){
             <Typography sx={{fontSize:28, color:"white",  width:{md:110}, fontWeight: "bold",paddingTop: 2}}>é</Typography>
             <Typography sx={{fontSize:76, color:"white",  width:{md:110}, fontWeight: "bold", paddingRight: 21, paddingBottom: 20}}>Luiggi</Typography>
         </Box>
-
-      
     </Box>
 }
