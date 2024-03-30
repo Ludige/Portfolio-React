@@ -7,7 +7,31 @@ import ButtonComponent from "./components/Button";
 import Presentation from "./components/Presentation";
 //Animations
 import sleepingCatAnimation from "./assets/sleeping_cat.json"
+import anime from "./assets/progrsmadorGato.json"
 
+
+// function scrollTo (){
+//     Link.scrollTo('contato');
+// };
+
+function getAge(){
+  let date = new Date();
+  let actualYear = date.getFullYear();
+  let actualMonth = date.getMonth() + 1;
+  let today = date.getDate();
+
+  let birthday = 12;
+  let birthMonth = 12;
+  let birthYear = 2000;
+
+  let age = actualYear - birthYear;
+
+  if ((actualMonth < birthMonth) || (actualMonth === birthMonth && today < birthday)) {
+      age--;
+  }
+
+  return age;
+};
 
 class App extends Component{
   render(){
@@ -30,10 +54,8 @@ class App extends Component{
           display: "flex",
           flexDirection: "row",
         }}>
-          <Box sx={{
-            pt:38,
-            }}>
-            <Lottie animationData={sleepingCatAnimation} style={{width:550}}/>
+          <Box sx={{pt:38,}}>
+            <Lottie animationData={sleepingCatAnimation} style={{width:"40vw"} }/>
           </Box>
           <Box sx={{pt: 25}}>
             <Presentation></Presentation>
@@ -41,15 +63,21 @@ class App extends Component{
         </Container>
        
       </Box>
-      <Container sx={{bgcolor: "white", height: "100vh"}}>
-            <Paper>
-              <Typography>Sobre Mim</Typography>
-
-              <Typography>
-                Meu nome é Luiggi, tenho 23 anos, Sou um desenvolvedor FullStack, minha jornada na programação 
-                começou em 2019 desde então adquiri conhecimento em diversas linguagens, nelas inclusas Java,
-                JavaScript, HTML+CSS, Dart, Python, NodeJs, Sql, noSQL. Além de alguns frameworks como o React e Flutter.
-              </Typography>
+      <Container sx={{height: "100vh"}}>
+            <Paper elevation={0} sx={{paddingTop:"10vh", display: "flex", flexDirection: "row",}}>
+            <Box sx={{width: {xs:1, md:"34vw"}, height: {xs:1, md:"36vh"}, }}>
+                <Lottie animationData={anime} style={{width:"26vw", paddingLeft: 32}}/>
+              </Box>
+              <Box sx={{width: {xs:1, md:"34vw"}, height: {xs:1, md:"30vh"}, paddingLeft:"20vh"}}>
+                <Typography  sx={{fontSize:32, justifyContent: "center",textAlign:"center", fontWeight:"bold", color:"purple", paddingBottom:2}} variant="h2" >
+                  Sobre mim
+                </Typography>
+                <Typography sx={{fontSize:16,  textAlign:"justify"}}>
+                  Meu nome é Luiggi, tenho {getAge()} anos, Sou um desenvolvedor FullStack, minha jornada na programação
+                  começou em 2019 desde então adquiri conhecimento em diversas linguagens, nelas inclusas Java,
+                  JavaScript, HTML+CSS, Dart, Python, NodeJs, Sql, noSQL. Além de alguns frameworks como o React e Flutter.
+                </Typography>
+              </Box>
             </Paper>
       </Container>
     </Box>
