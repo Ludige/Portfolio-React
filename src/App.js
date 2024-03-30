@@ -1,7 +1,8 @@
 
-import { Box, AppBar, Container, Paper, Typography} from "@mui/material";
+import { Box, AppBar, Container, Paper, Typography, Divider} from "@mui/material";
 import { Component } from "react";
 import Lottie from "lottie-react";
+import 'aos/dist/aos.css';
 //Components
 import ButtonComponent from "./components/Button";
 import Presentation from "./components/Presentation";
@@ -34,6 +35,7 @@ function getAge(){
 };
 
 class App extends Component{
+
   render(){
     return( <Box>
       <AppBar sx={{bgcolor: "purple", height:"9vh"}} elevation={0}>
@@ -54,8 +56,8 @@ class App extends Component{
           display: "flex",
           flexDirection: "row",
         }}>
-          <Box sx={{pt:38,}}>
-            <Lottie animationData={sleepingCatAnimation} style={{width:"40vw"} }/>
+          <Box sx={{pt:38}}>
+            <Lottie animationData={sleepingCatAnimation} style={{width:"40vw"}}/>
           </Box>
           <Box sx={{pt: 25}}>
             <Presentation></Presentation>
@@ -64,21 +66,22 @@ class App extends Component{
        
       </Box>
       <Container sx={{height: "100vh"}}>
-            <Paper elevation={0} sx={{paddingTop:"10vh", display: "flex", flexDirection: "row",}}>
-            <Box sx={{width: {xs:1, md:"34vw"}, height: {xs:1, md:"36vh"}, }}>
-                <Lottie animationData={anime} style={{width:"26vw", paddingLeft: 32}}/>
-              </Box>
-              <Box sx={{width: {xs:1, md:"34vw"}, height: {xs:1, md:"30vh"}, paddingLeft:"20vh"}}>
-                <Typography  sx={{fontSize:32, justifyContent: "center",textAlign:"center", fontWeight:"bold", color:"purple", paddingBottom:2}} variant="h2" >
+            <Paper elevation={0} sx={{paddingTop:"10vh", display: "flex", flexDirection: "row"}} >
+              <Box sx={{width: {xs:1, md:"34vw"}, height: {xs:1, md:"30vh"}, paddingLeft:"20vh"}} data-aos="fade-up">
+                <Typography  sx={{fontSize:32, justifyContent: "center",textAlign:"center", fontWeight:"bold", color:"purple", paddingBottom:2, position:"relative"}} variant="h2" >
                   Sobre mim
                 </Typography>
-                <Typography sx={{fontSize:16,  textAlign:"justify"}}>
-                  Meu nome é Luiggi, tenho {getAge()} anos, Sou um desenvolvedor FullStack, minha jornada na programação
+                <Typography sx={{fontSize:16,  textAlign:"justify", position:"relative"}} >
+                  Meu nome é Luiggi, tenho {getAge()} anos, Sou desenvolvedor FullStack, minha jornada na programação
                   começou em 2019 desde então adquiri conhecimento em diversas linguagens, nelas inclusas Java,
                   JavaScript, HTML+CSS, Dart, Python, NodeJs, Sql, noSQL. Além de alguns frameworks como o React e Flutter.
                 </Typography>
               </Box>
+              <Box sx={{width: {xs:1, md:"34vw"}, height: {xs:1, md:"36vh"}, }}>
+                <Lottie animationData={anime} style={{width:"26vw", paddingLeft: 32}} data-aos="fade-up"/>
+              </Box>
             </Paper>
+            <Divider sx={{py: 2}}  data-aos="zoom-in" data-aos-delay="200"/>
       </Container>
     </Box>
     );
