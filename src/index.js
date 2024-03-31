@@ -12,9 +12,11 @@ const theme = createTheme({
     primary:{
       main: "#FFFFFF",
       contrastText: "purple",
+      fontFamily:"Atlan"
     },
     secondary:{
       main:"#FFFFFF",
+      fontFamily:"Atlan",
     }
   }
 });

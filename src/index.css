@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Atlan';
-  src: local('Atlan'), url() format('truetype');
+  src: local('Atlan'), url("./assets/fonts/AtlanRegular.otf") format('truetype');
 }
 
 body {
