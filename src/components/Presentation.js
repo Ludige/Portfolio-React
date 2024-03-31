@@ -1,6 +1,6 @@
 import {Typography, Box} from "@mui/material";
 
-export default function Presentation(){
+export default function Presentation(icon){
     return <Box>
         <Box sx={{width:200, height:65}}>
             <Typography sx={{fontSize:65, color:"white", width:{md:110}, fontWeight: "bold"}}>Olá, <br/></Typography>

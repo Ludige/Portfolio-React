@@ -4,16 +4,22 @@ import { Component } from "react";
 import Lottie from "lottie-react";
 import 'aos/dist/aos.css';
 import dayjs from 'dayjs'
+
 //Components
 import ButtonComponent from "./components/Button";
 import Presentation from "./components/Presentation";
-
+import ProjectSection from "./components/ProjectSection";
 //Animations
-import sleepingCatAnimation from "./assets/sleeping_cat.json";
-import anime from "./assets/progrsmadorGato.json";
+import sleepingCatAnimation from "./assets/icons/sleeping_cat.json";
+import computingCat from "./assets/icons/progrsmadorGato.json";
 //Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { RiFlutterFill } from "react-icons/ri";
+import { FaJava } from "react-icons/fa";
+import { SiJavascript } from "react-icons/si";
+import { FaNodeJs,FaPython,FaReact } from "react-icons/fa";
+import { DiDart,DiMysql } from "react-icons/di";
 
 // function scrollTo (){
 //     Link.scrollTo('contato');
@@ -84,16 +90,46 @@ class App extends Component{
                     <LinkedInIcon sx={{width:36, height:36}} onClick={() =>{window.open("https://www.linkedin.com/in/ludige/", "_blank")}}/>
                   </IconButton>
                 </Box>
-
               </Box>
               <Box sx={{width: {xs:1, md:"34vw"}, height: {xs:1, md:"36vh"}}}>
-                <Lottie animationData={anime} style={{width:"26vw", marginLeft: 48}} data-aos="fade-left"/>
+                <Lottie animationData={computingCat} style={{width:"26vw", marginLeft: 48}} data-aos="fade-left"/>
               </Box>
             </Paper>
 
-            <Divider sx={{marginTop:5, color:"purple"}}  data-aos="zoom-in" data-aos-delay="200"/>
+            <Divider sx={{marginTop:5,marginBottom:5 ,color:"purple"}} data-aos="zoom-in" data-aos-delay="200"/>
 
-            
+            <Box sx={{display: "flex",justifyContent:"center"}}>
+              <Paper sx={{width:"36vw",display: "flex",justifyContent:"center"}} elevation={0}>
+                <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                  <RiFlutterFill  color="purple" size={50}/>
+                </Box>
+                <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
+                  <FaJava color="purple" size={50}/>
+                </Box>
+                <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+                  <SiJavascript color="purple" size={50} />
+                </Box>
+                <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="400">
+                  <FaNodeJs color="purple" size={50}/>
+                </Box>
+                <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
+                  <FaPython color="purple" size={50}/>
+                </Box>
+                <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="600">
+                  <FaReact color="purple" size={50}/>
+                </Box>
+                <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="700">
+                  <DiDart color="purple" size={50}/>
+                </Box>
+                <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="800">
+                  <DiMysql color="purple" size={50}/>
+                </Box>
+              </Paper>
+            </Box>
+
+            <Divider sx={{marginTop:5,marginBottom:5 ,color:"purple"}} data-aos="zoom-in" data-aos-delay="200"/>
+
+            <ProjectSection />
       </Container>
     </Box>
     );
