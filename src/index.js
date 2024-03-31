@@ -22,13 +22,11 @@ const theme = createTheme({
 });
 
 function MyRootApp() {
-  // Use useEffect here to initialize AOS
   useEffect(() => {
     AOS.init({
-      // Configure AOS options here if needed
     });
-  }, []);  // Empty dependency array ensures it runs only once
-
+  }, []);
+  
   return (
     <React.StrictMode>
       <ThemeProvider theme={theme}>

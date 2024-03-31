@@ -113,10 +113,25 @@ class App extends Component{
 
           <Divider sx={{marginTop:5,marginBottom:5 ,color:"purple"}} data-aos="zoom-in" data-aos-delay="200"/>
 
-          <Grid>
-            <ProjectSection />
-          </Grid>
+          <Box sx={{display:"flex", justifyContent:"center"}}>
+            <Box>
+              <Box sx={{marginRight:12, marginBottom: 12}} data-aos="fade-right">
+                <ProjectSection  title={"Frondend Rede Social em Flutter"} text={"Esse projeto tem como objetivo criar um aplicativo funcional em Flutter que simule uma rede social"}/>
+              </Box>
+              <Box data-aos="fade-right">
+                <ProjectSection/>
+              </Box>
+            </Box>
+            <Box>
+              <Box sx={{marginBottom: 12}} data-aos="fade-left">
+                <ProjectSection title={"Backend Rede Social em NodeJs+Mongo"} text={"Esse projeto tem como objetivo criar toda a parde backend da aplicação em Flutter ao lado"}/>
+              </Box>
+              <Box data-aos="fade-left">
+                <ProjectSection/>
+              </Box>
+            </Box>       
 
+          </ Box>
       </Container>
     </Box>
     );
