@@ -1,5 +1,5 @@
 
-import { Box, AppBar, Container, Typography, IconButton, TableFooter} from "@mui/material";
+import { Box, AppBar, Container, Typography, IconButton} from "@mui/material";
 import { Component } from "react";
 import Lottie from "lottie-react";
 import 'aos/dist/aos.css';
@@ -19,8 +19,6 @@ import computingCat from "./assets/icons/progrsmadorGato.json";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-//TODO: DEIXAR RESPOSIVO NO MOBILE. NÂO ESQUECER PELO AMOR DE CRISTO, RESPOSIVO MOBILE TODO TODO TODO
-
 function getAge(){
   return dayjs().diff(dayjs('2000-12-12'), 'year');
 };
@@ -29,33 +27,41 @@ class App extends Component{
 
   render(){
     return( <Box>
-      <AppBar sx={{bgcolor: "purple", height:"9vh"}} elevation={0}>
+      <AppBar sx={{bgcolor: "purple", height:56}} elevation={0}>
         <Box sx={{
           gap: 2,
           display: "flex",
           flexDirection: "row",
-          justifyContent: "flex-end",
+          justifyContent: {xs: "center", md: "flex-end"},
           px: 16
         }}>
-          {/* TODO: Responsividade prioridade */}
           <ButtonComponent text={"Sobre Mim"}/>
           <ButtonComponent text={"Projetos"}/>
           <ButtonComponent text={"Contato"}/>
         </Box>
       </AppBar>
-      <Box sx={{bgcolor: "purple", height: "100vh"}}>
-        <Container sx={{
+
+        {/* Espaço da AppBar */}
+      <Box sx={{height:56}}></Box>
+
+      <Box 
+        sx={{
+          bgcolor: "purple",
           display: "flex",
-          flexDirection: "row",
-        }}>
-          <Box sx={{pt:38,px:3}}>
-            <Lottie animationData={sleepingCatAnimation} style={{width:"40vw", height:"80vh"}}/>
-          </Box>
-          <Box sx={{pt: 25}}>
-            <Presentation></Presentation>
-          </Box>
-        </Container>
+          flexDirection: {xs:"column", md:"row"},
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight:{xs: "480px", sm:"900px"}}}>
+            <Box sx={{order: { xs: 2, md: 1}}}>
+              <Lottie animationData={sleepingCatAnimation} style={{ height:520}} />
+            </Box>
+            
+            <Box sx={{order: { xs: 1, md: 2 }, height: {xm: 0, md: 480}}}>
+              <Presentation/>
+            </Box>
+            
       </Box>
+
       <Container>
           <Box sx={{paddingTop:8, display: "flex",flexDirection: "row"}}  >
             <Box sx={{width: 400, height:200, marginLeft:20}} data-aos="fade-right">
