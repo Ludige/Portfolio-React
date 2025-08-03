@@ -119,33 +119,21 @@ class App extends Component{
           <Box sx={{display:"flex", justifyContent:"center"}}>
             <Box>
               <Box sx={{marginRight:12, marginBottom: 12}} data-aos="fade-right">
-                <ProjectSection  
-                  title={"Frondend Rede Social em Flutter"}
-                  text={"Esse projeto tem como objetivo criar um aplicativo funcional em Flutter que simule uma rede social"}
-                  site={"https://github.com/RafaelSouzaCostaa/front_end_rede_social_lr"}
+                <ProjectSection  repositoryUrl={"https://github.com/RafaelSouzaCostaa/front_end_rede_social_lr"}
                   />
               </Box>
               <Box data-aos="fade-right">
-                <ProjectSection
-                  title={"Desenvolvimento em NodeJs"}
-                  text={"Esse projeto tem as principais atividades praticadas em NodeJs durante a faculdade"}
-                  site={"https://github.com/Ludige/TSI-5P-DSDBD-NodeJs"}
+                <ProjectSection repositoryUrl={"https://github.com/Ludige/TSI-5P-DSDBD-NodeJs"}
                 />
               </Box>
             </Box>
             <Box>
               <Box sx={{marginBottom: 12}} data-aos="fade-left">
-                <ProjectSection
-                  title={"Backend Rede Social em NodeJs+Mongo"}
-                  text={"Esse projeto tem como objetivo mostrar toda a parte do backend da aplicação em Flutter ao lado"}
-                  site={"https://github.com/RafaelSouzaCostaa/back_end_rede_social_lr"}
+                <ProjectSection repositoryUrl={"https://github.com/RafaelSouzaCostaa/back_end_rede_social_lr"}
                 />
               </Box>
               <Box data-aos="fade-left">
-                <ProjectSection
-                  title={"Padrões de Projeto"}
-                  text={"Esse projeto tem as principais tecnicas de Padrão de Projeto praticadas durante meu tempo na faculdade"}
-                  site={"https://github.com/Ludige/TSI-5P-Padrao-de-Projeto"}
+                <ProjectSection repositoryUrl={"https://github.com/Ludige/TSI-5P-Padrao-de-Projeto"}
                 />
               </Box>
             </Box>
