@@ -1,6 +1,7 @@
 
 import { Box, AppBar, Container, Typography, IconButton} from "@mui/material";
 import { Component } from "react";
+import { useEffect } from "react";
 import Lottie from "lottie-react";
 import 'aos/dist/aos.css';
 import dayjs from 'dayjs'
@@ -18,22 +19,27 @@ import computingCat from "./assets/icons/progrsmadorGato.json";
 //Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import SocialIconButton from "./components/SocialIconButton";
 
 function getAge(){
   return dayjs().diff(dayjs('2000-12-12'), 'year');
 };
 
-class App extends Component{
+function App() {
+  useEffect(() => {
+    const AOS = require('aos');
+    AOS.init({ once: true });
+  }, []);
 
-  render(){
-    return( <Box>
+  return (
+    <Box>
       <AppBar sx={{bgcolor: "purple", height:56}} elevation={0}>
         <Box sx={{
           gap: 2,
           display: "flex",
           flexDirection: "row",
           justifyContent: {xs: "center", md: "flex-end"},
-          px: 16
+          pr: {xs: 0, md:16}
         }}>
           <ButtonComponent text={"Sobre Mim"}/>
           <ButtonComponent text={"Projetos"}/>
@@ -84,13 +90,9 @@ class App extends Component{
                 JavaScript, HTML+CSS, Dart, Python, NodeJs, Sql, noSQL. Além de alguns frameworks como o React e Flutter.
               </Typography>
               {/* Buttons */}
-              <Box sx={{display: "flex",justifyContent:"center", marginTop:2}}>
-                <IconButton sx={{color:"purple", marginRight:2}} onClick={() =>{window.open("https://github.com/ludige", "_blank")}}>
-                  <GitHubIcon sx={{width:36, height:36}} />
-                </IconButton>
-                <IconButton sx={{color:"purple"}}>
-                  <LinkedInIcon sx={{width:36, height:36}} onClick={() =>{window.open("https://www.linkedin.com/in/ludige/", "_blank")}}/>
-                </IconButton>
+              <Box sx={{display: "flex",justifyContent:"center", marginTop:2, gap: 1}}>
+                <SocialIconButton icon={GitHubIcon} url="https://github.com/ludige" />
+                <SocialIconButton icon={LinkedInIcon} url="https://www.linkedin.com/in/ludige/" />
               </Box>
             </Box>
             <Box sx={{width:"34vw", height: "36vh"}} xs={2} > 
@@ -117,7 +119,7 @@ class App extends Component{
             <TitleC text={"Projetos"} />
           </Box>
           <Box sx={{display:"flex", justifyContent:"center"}}>
-            <Box>
+            {/* <Box>
               <Box sx={{marginRight:12, marginBottom: 12}} data-aos="fade-right">
                 <ProjectSection  repositoryUrl={"https://github.com/RafaelSouzaCostaa/front_end_rede_social_lr"}
                   />
@@ -135,23 +137,23 @@ class App extends Component{
               <Box data-aos="fade-left">
                 <ProjectSection repositoryUrl={"https://github.com/Ludige/TSI-5P-Padrao-de-Projeto"}
                 />
-              </Box>
-            </Box>
+              </Box> 
+             </Box> */}
           </ Box>
           <DividerP />
 
-        <Box sx={{height:320}}>
+        <Box sx={{height:180}}>
           <Box data-aos="zoom-in">
             <TitleC text={"Contato"} />
           </Box>
           <Box sx={{display:"flex", justifyContent:"center"}}>
-            <Typography sx={{color:"purple", fontFamily:"Atlan",fontSize:20}}>
+            <Typography sx={{color:"purple", fontFamily:"Atlan",fontSize:18}}>
               Email: Luiggi.ms.1@gmail.com
             </Typography>
           </Box>
           <Box sx={{display:"flex", justifyContent:"center"}}>
-            <Typography sx={{color:"purple", fontFamily:"Atlan", fontSize:20}}>
-              Whatsapp: +55 (XX) XXXXX-XXXX
+            <Typography sx={{color:"purple", fontFamily:"Atlan", fontSize:18}}>
+              Whatsapp: +55 (64) 99294-4179
             </Typography>
           </Box>
          </Box>
@@ -159,6 +161,5 @@ class App extends Component{
     </Box>
     );
   }
-}
 
 export default App;
