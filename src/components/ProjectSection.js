@@ -28,17 +28,22 @@ export default function ProjectSection({repositoryUrl}){
     const [backgroundImage] = useState(getRandomImage()); // Imagem aleatória definida na criação do componente
     
     useEffect(() => {
-        // // Dados simulados para desenvolvimento (evita gasto de requisições da API)
-        // const mockData = {
-        //     name: "Portfolio-React",
-        //     description: "Meu portfólio desenvolvido em React com Material-UI e animações AOS",
-        //     html_url: repositoryUrl
-        // };
-        // setRepositoryData(mockData);
-        // setDescriptionReadMe("");
-
         const repositoryData = getRepository(repositoryUrl);
         if (!repositoryData) return;
+        
+        // Para produção, usar dados mockados (mais rápido e confiável)
+        if (process.env.NODE_ENV === 'production') {
+            const mockData = {
+                name: repositoryData.repository,
+                description: getProjectDescription(repositoryData.repository),
+                html_url: repositoryUrl
+            };
+            setRepositoryData(mockData);
+            setDescriptionReadMe("");
+            return;
+        }
+        
+        // Código da API apenas para desenvolvimento
         fetch(`https://api.github.com/repos/${repositoryData.user}/${repositoryData.repository}`, {
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
@@ -71,6 +76,17 @@ export default function ProjectSection({repositoryUrl}){
             }
         });
     }, [repositoryUrl]);
+
+    // Função para fornecer descrições personalizadas dos projetos
+    function getProjectDescription(projectName) {
+        const descriptions = {
+            "Portfolio-React": "Meu portfólio desenvolvido em React com Material-UI e animações AOS",
+            "projeto-exemplo": "Descrição do seu projeto exemplo",
+            // Adicione mais projetos conforme necessário
+        };
+        
+        return descriptions[projectName] || "Projeto desenvolvido com tecnologias modernas";
+    }
 
     if (!repositoryData) return null;
 
