@@ -6,30 +6,35 @@ import { FaNodeJs,FaPython,FaReact } from "react-icons/fa";
 import { DiDart,DiMysql } from "react-icons/di";
 
 export default function AnimatedIcons(){
-    return <Paper sx={{width:"36vw",display: "flex",justifyContent:"center", gap: 1.8}} elevation={0}>
-    <Box  data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" > 
-      <RiFlutterFill  color="purple" size={50}/>
-    </Box>
-    <Box data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
-      <FaJava color="purple" size={50}/>
-    </Box>
-    <Box data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-      <SiJavascript color="purple" size={50} />
-    </Box>
-    <Box data-aos="fade-down" data-aos-duration="600" data-aos-delay="400">
-      <FaNodeJs color="purple" size={50}/>
-    </Box>
-    <Box data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
-      <FaPython color="purple" size={50}/>
-    </Box>
-    <Box  data-aos="fade-down" data-aos-duration="600" data-aos-delay="600">
-      <FaReact color="purple" size={50}/>
-    </Box>
-    <Box  data-aos="fade-up" data-aos-duration="600" data-aos-delay="700">
-      <DiDart color="purple" size={50}/>
-    </Box>
-    <Box data-aos="fade-down" data-aos-duration="600" data-aos-delay="800">
-      <DiMysql color="purple" size={50}/>
-    </Box>
-  </Paper>
+    // Array com as propriedades de cada ícone
+    const iconsData = [
+        {id: 1, Icon: RiFlutterFill},
+        {id: 2, Icon: FaJava},
+        {id: 3, Icon: SiJavascript},
+        {id: 4, Icon: FaNodeJs},
+        {id: 5, Icon: FaPython},
+        {id: 6, Icon: FaReact},
+        {id: 7, Icon: DiDart},
+        {id: 8, Icon: DiMysql}
+    ];
+
+    return (
+        <Paper sx={{width:"36vw",display: "flex",justifyContent:"center", gap: 1.8}} elevation={0}>
+            {iconsData.map((iconData) => {
+                const animation = iconData.id % 2 === 0 ? "fade-down" : "fade-up";
+                const delay = iconData.id * 100;
+
+                return (
+                    <Box 
+                        key={iconData.id}
+                        data-aos={animation} 
+                        data-aos-duration="600" 
+                        data-aos-delay={delay}
+                    > 
+                        <iconData.Icon color="purple" size={48}/>
+                    </Box>
+                );
+            })}
+        </Paper>
+    );
 }

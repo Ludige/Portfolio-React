@@ -13,6 +13,16 @@ export default function ProjectSection({repositoryUrl}){
     const [DescriptionReadMe, setDescriptionReadMe] = useState("");
     
     useEffect(() => {
+        // Dados simulados para desenvolvimento (evita gasto de requisições da API)
+        const mockData = {
+            name: "Portfolio-React",
+            description: "Meu portfólio desenvolvido em React com Material-UI e animações AOS",
+            html_url: repositoryUrl
+        };
+        setRepositoryData(mockData);
+        setDescriptionReadMe("");
+
+        /* API DESATIVADA TEMPORARIAMENTE - DESCOMENTE QUANDO NECESSÁRIO
         const repositoryData = getRepository(repositoryUrl);
         if (!repositoryData) return;
         fetch(`https://api.github.com/repos/${repositoryData.user}/${repositoryData.repository}`, {
@@ -46,6 +56,7 @@ export default function ProjectSection({repositoryUrl}){
                 setDescriptionReadMe("");
             }
         });
+        */
     }, [repositoryUrl]);
 
     if (!repositoryData) return null;
