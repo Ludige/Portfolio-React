@@ -6,29 +6,29 @@ import { FaNodeJs,FaPython,FaReact } from "react-icons/fa";
 import { DiDart,DiMysql } from "react-icons/di";
 
 export default function AnimatedIcons(){
-    return <Paper sx={{width:"36vw",display: "flex",justifyContent:"center"}} elevation={0}>
-    <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+    return <Paper sx={{width:"36vw",display: "flex",justifyContent:"center", gap: 1.8}} elevation={0}>
+    <Box  data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" > 
       <RiFlutterFill  color="purple" size={50}/>
     </Box>
-    <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
+    <Box data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
       <FaJava color="purple" size={50}/>
     </Box>
-    <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+    <Box data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
       <SiJavascript color="purple" size={50} />
     </Box>
-    <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="400">
+    <Box data-aos="fade-down" data-aos-duration="600" data-aos-delay="400">
       <FaNodeJs color="purple" size={50}/>
     </Box>
-    <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
+    <Box data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
       <FaPython color="purple" size={50}/>
     </Box>
-    <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="600">
+    <Box  data-aos="fade-down" data-aos-duration="600" data-aos-delay="600">
       <FaReact color="purple" size={50}/>
     </Box>
-    <Box sx={{marginRight:2}} data-aos="fade-up" data-aos-duration="600" data-aos-delay="700">
+    <Box  data-aos="fade-up" data-aos-duration="600" data-aos-delay="700">
       <DiDart color="purple" size={50}/>
     </Box>
-    <Box sx={{marginRight:2}} data-aos="fade-down" data-aos-duration="600" data-aos-delay="800">
+    <Box data-aos="fade-down" data-aos-duration="600" data-aos-delay="800">
       <DiMysql color="purple" size={50}/>
     </Box>
   </Paper>

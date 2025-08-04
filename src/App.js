@@ -52,12 +52,12 @@ function App() {
       <Box 
         sx={{
           bgcolor: "purple",
-          width: {xs:"100vw" ,sm:"100%"},
+          minwidth: "360px",
           display: "flex",
           flexDirection: {xs:"column", md:"row"},
           justifyContent: "center",
           alignItems: "center",
-          minHeight:{xs: "480px", sm:"900px"}}}>
+          }}>
             <Box sx={{order: { xs: 2, md: 1}}}>
               <Lottie animationData={sleepingCatAnimation} style={{ height:520}} />
             </Box>
@@ -68,21 +68,24 @@ function App() {
       </Box>
 
       <Container>
-          <Box sx={{paddingTop:8, display: "flex",flexDirection: "row"}}  >
-            <Box sx={{width: 400, height:200, marginLeft:20}} data-aos="fade-right">
-              {/* Text */}
+          <Box 
+            sx={{
+                display: "flex",
+                flexDirection: {xs: "column", md:"row"},
+                mt: 8,
+                alignItems: "center",
+                justifyContent:"center",
+                }}>
+            <Box sx={{width: 420, height:280}} data-aos="fade-right">
               <TitleC text={"Sobre mim"}/>
               <Typography sx={{
                 fontSize:16,
                 textAlign:"justify",
                 position:"relative",
-                maxWidth:"34vw",
-                maxHeight:"30vh",
                 fontFamily:"Atlan",
                 fontWeight:"bold",
                 overflow: 'hidden',
                 textOverflow:"ellipsis",
-                height:150
                 }}>
                 Meu nome é Luiggi, tenho {getAge()} anos, Sou desenvolvedor FullStack, minha jornada na programação
                 começou em 2019 desde então adquiri conhecimento em diversas linguagens, nelas inclusas Java,
@@ -94,8 +97,8 @@ function App() {
                 <SocialIconButton icon={LinkedInIcon} url="https://www.linkedin.com/in/ludige/" />
               </Box>
             </Box>
-            <Box sx={{width:"34vw", height: "36vh"}} xs={2} > 
-              <Lottie animationData={computingCat} style={{width:"26vw"}} data-aos="fade-left" />
+            <Box sx={{width:320, height: 260, display: { xs: 'none', md: 'block' } }} > 
+              <Lottie animationData={computingCat} style={{width:380}} data-aos="fade-left" />
             </Box>
           </Box>
 
@@ -114,7 +117,7 @@ function App() {
 
 
           {/* Projetos */}
-          <Box data-aos="zoom-in" sx={{marginTop:10, marginBottom:6}}>
+          <Box data-aos="zoom-in" sx={{ marginBottom:6}}>
             <TitleC text={"Projetos"} />
           </Box>
           <Box sx={{display:"flex", justifyContent:"center"}}>
