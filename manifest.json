@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Portfólio Luiggi",
+  "name": "Portfólio Pessoal - Luiggi Desenvolvedor",
+  "description": "Portfólio pessoal de Luiggi - Desenvolvedor Full Stack",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#1976d2",
+  "background_color": "#ffffff",
+  "categories": ["portfolio", "developer", "programming"]
 }
