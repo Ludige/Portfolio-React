@@ -1,5 +1,5 @@
 
-import { Box, AppBar, Container, Typography, Fade} from "@mui/material";
+import { Box, AppBar, Container, Typography} from "@mui/material";
 import { useEffect } from "react";
 import Lottie from "lottie-react";
 import 'aos/dist/aos.css';
