@@ -1,6 +1,5 @@
 
-import { Box, AppBar, Container, Typography, IconButton} from "@mui/material";
-import { Component } from "react";
+import { Box, AppBar, Container, Typography} from "@mui/material";
 import { useEffect } from "react";
 import Lottie from "lottie-react";
 import 'aos/dist/aos.css';
@@ -9,7 +8,7 @@ import dayjs from 'dayjs'
 //Components
 import ButtonComponent from "./components/Button";
 import Presentation from "./components/Presentation";
-import ProjectSection from "./components/ProjectSection";
+// import ProjectSection from "./components/ProjectSection";
 import DividerP from "./components/DividerP";
 import TitleC from "./components/TitleC";
 import AnimatedIcons from "./components/AnimatedIcons";
@@ -39,7 +38,7 @@ function App() {
           display: "flex",
           flexDirection: "row",
           justifyContent: {xs: "center", md: "flex-end"},
-          pr: {xs: 0, md:16}
+          px: {xs: 2, md:18}
         }}>
           <ButtonComponent text={"Sobre Mim"}/>
           <ButtonComponent text={"Projetos"}/>
@@ -53,6 +52,7 @@ function App() {
       <Box 
         sx={{
           bgcolor: "purple",
+          width: {xs:"100vw" ,sm:"100%"},
           display: "flex",
           flexDirection: {xs:"column", md:"row"},
           justifyContent: "center",
@@ -61,8 +61,7 @@ function App() {
             <Box sx={{order: { xs: 2, md: 1}}}>
               <Lottie animationData={sleepingCatAnimation} style={{ height:520}} />
             </Box>
-            
-            <Box sx={{order: { xs: 1, md: 2 }, height: {xm: 0, md: 480}}}>
+            <Box sx={{order: { xs: 1, md: 2 }, height: {xm: 0, md: 480}, mb: {xs: -16, md: 0}}}>
               <Presentation/>
             </Box>
             
