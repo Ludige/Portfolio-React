@@ -1,5 +1,5 @@
 
-import { Box, AppBar, Container, Typography} from "@mui/material";
+import { Box, AppBar, Container, Typography, Fade} from "@mui/material";
 import { useEffect } from "react";
 import Lottie from "lottie-react";
 import 'aos/dist/aos.css';
@@ -18,10 +18,22 @@ import computingCat from "./assets/icons/progrsmadorGato.json";
 //Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SocialIconButton from "./components/SocialIconButton";
 
 function getAge(){
   return dayjs().diff(dayjs('2000-12-12'), 'year');
+};
+
+function scrollToSection(sectionId) {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const y = element.getBoundingClientRect().top + window.pageYOffset + -72;
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth'
+    });
+  }
 };
 
 function App() {
@@ -32,7 +44,7 @@ function App() {
 
   return (
     <Box>
-      <AppBar sx={{bgcolor: "purple", height:56}} elevation={0}>
+      <AppBar sx={{bgcolor: "purple", height:56}} elevation={0} position="fixed">
         <Box sx={{
           gap: 2,
           display: "flex",
@@ -40,14 +52,11 @@ function App() {
           justifyContent: {xs: "center", md: "flex-end"},
           px: {xs: 2, md:18}
         }}>
-          <ButtonComponent text={"Sobre Mim"}/>
-          <ButtonComponent text={"Projetos"}/>
-          <ButtonComponent text={"Contato"}/>
+          <ButtonComponent text={"Sobre Mim"} onClick={() => scrollToSection('sobre-mim')}/>
+          <ButtonComponent text={"Projetos"} onClick={() => scrollToSection('projetos')}/>
+          <ButtonComponent text={"Contato"} onClick={() => scrollToSection('contato')}/>
         </Box>
       </AppBar>
-
-        {/* Espaço da AppBar */}
-      <Box sx={{height:56}}></Box>
 
       <Box 
         sx={{
@@ -57,6 +66,7 @@ function App() {
           flexDirection: {xs:"column", md:"row"},
           justifyContent: "center",
           alignItems: "center",
+          position: "relative",
           }}>
         <Box sx={{order: { xs: 2, md: 1}}}>
           <Lottie animationData={sleepingCatAnimation} style={{height:520}} />
@@ -65,10 +75,43 @@ function App() {
           <Presentation/>
         </Box>
 
+        <Box 
+          sx={{
+            position: "absolute",
+            bottom: 20,
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            animation: "bounce 2s infinite",
+            "@keyframes bounce": {
+              "0%, 20%, 50%, 80%, 100%": {
+                transform: "translateX(-50%) translateY(0)",
+              },
+              "40%": {
+                transform: "translateX(-50%) translateY(-10px)",
+              },
+              "60%": {
+                transform: "translateX(-50%) translateY(-5px)",
+              },
+            },
+          }}
+        >
+          <KeyboardArrowDownIcon 
+            sx={{
+              color: "plum",
+              fontSize: 32,
+              opacity: 0.8,
+            }}
+          />
+        </Box>
+
       </Box>
 
       <Container>
           <Box 
+            id="sobre-mim"
             sx={{
                 display: "flex",
                 flexDirection: {xs: "column", md:"row"},
@@ -117,7 +160,7 @@ function App() {
 
 
           {/* Projetos */}
-          <Box data-aos="zoom-in" sx={{ marginBottom:6}}>
+          <Box id="projetos" data-aos="zoom-in" sx={{ marginBottom:6}}>
             <TitleC text={"Projetos"} />
           </Box>
           <Box sx={{
@@ -144,7 +187,7 @@ function App() {
 
           <DividerP />
 
-        <Box sx={{height:180}}>
+        <Box id="contato" sx={{height:180}}>
           <Box data-aos="zoom-in">
             <TitleC text={"Contato"} />
           </Box>

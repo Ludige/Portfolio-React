@@ -1,7 +1,8 @@
 import {Button} from "@mui/material";
 
-export default function ButtonComponent({text}){
+export default function ButtonComponent({text, onClick}){
     return <Button 
+    onClick={onClick}
     sx={{
         marginTop: 1.4,
         fontSize: 14,
