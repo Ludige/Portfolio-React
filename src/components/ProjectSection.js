@@ -1,6 +1,20 @@
 import {Box, IconButton, Paper, Typography} from "@mui/material";
 import { useEffect, useState } from "react";
-import PetsIcon from '@mui/icons-material/Pets';
+import CodeIcon from '@mui/icons-material/Code';
+
+// Lista de imagens relacionadas à programação
+const programmingImages = [
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Código colorido
+    "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Código em monitor
+    "https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Workspace programação
+    "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Código JavaScript
+    "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Laptop com código
+    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"  // Código em tela escura
+];
+
+function getRandomImage() {
+    return programmingImages[Math.floor(Math.random() * programmingImages.length)];
+}
 
 function getRepository(repositoryUrl) {
   const match = repositoryUrl.match(/github.com\/([^/]+)\/([^/]+)/);
@@ -11,18 +25,18 @@ function getRepository(repositoryUrl) {
 export default function ProjectSection({repositoryUrl}){
     const [repositoryData, setRepositoryData] = useState(null);
     const [DescriptionReadMe, setDescriptionReadMe] = useState("");
+    const [backgroundImage] = useState(getRandomImage()); // Imagem aleatória definida na criação do componente
     
     useEffect(() => {
-        // Dados simulados para desenvolvimento (evita gasto de requisições da API)
-        const mockData = {
-            name: "Portfolio-React",
-            description: "Meu portfólio desenvolvido em React com Material-UI e animações AOS",
-            html_url: repositoryUrl
-        };
-        setRepositoryData(mockData);
-        setDescriptionReadMe("");
+        // // Dados simulados para desenvolvimento (evita gasto de requisições da API)
+        // const mockData = {
+        //     name: "Portfolio-React",
+        //     description: "Meu portfólio desenvolvido em React com Material-UI e animações AOS",
+        //     html_url: repositoryUrl
+        // };
+        // setRepositoryData(mockData);
+        // setDescriptionReadMe("");
 
-        /* API DESATIVADA TEMPORARIAMENTE - DESCOMENTE QUANDO NECESSÁRIO
         const repositoryData = getRepository(repositoryUrl);
         if (!repositoryData) return;
         fetch(`https://api.github.com/repos/${repositoryData.user}/${repositoryData.repository}`, {
@@ -56,13 +70,22 @@ export default function ProjectSection({repositoryUrl}){
                 setDescriptionReadMe("");
             }
         });
-        */
     }, [repositoryUrl]);
 
     if (!repositoryData) return null;
 
-    return <Paper sx={{width:330, height:340, borderRadius:"1vw", display:"flex", justifyContent:"center", flexWrap:"wrap"}}>
-        <Box sx={{bgcolor:"plum", width:300, height:180, marginTop:2, borderRadius:"1vw",}}>
+    return <Paper sx={{width:330, height:340, borderRadius:3, display:"flex", justifyContent:"center", flexWrap:"wrap"}}>
+        <Box sx={{
+            bgcolor:"plum", 
+            width:300, 
+            height:180, 
+            marginTop:2, 
+            borderRadius:3,
+            backgroundImage: `url('${backgroundImage}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+        }}>
             
         </Box>
         <Box sx={{ width:300, height:90,borderRadius:"1vw"}}>
@@ -88,7 +111,7 @@ export default function ProjectSection({repositoryUrl}){
             onClick={() => {
                 window.open(`${repositoryUrl}`, "_blank");
             }}>
-                <PetsIcon sx={{width:20, height:20, marginRight:0.5}}/> Saiba Mais
+                <CodeIcon sx={{width:26, height:26, marginRight:0.5}}/> Ver Repositório
             </IconButton>
         </Box>
         
